@@ -1,0 +1,1 @@
+docker run --name mongo-company -d -p 27017:27017 -v D:/data/db/esm-company-svc mongo
