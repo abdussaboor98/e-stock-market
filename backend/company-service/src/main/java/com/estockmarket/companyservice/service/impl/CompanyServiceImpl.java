@@ -19,6 +19,4 @@ public class CompanyServiceImpl implements ICompanyService {
         
         return null;
     }
-
-    
 }
