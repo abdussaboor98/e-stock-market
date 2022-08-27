@@ -1,1 +1,4 @@
+OpenAPI - http://host:port/v3/api-docs/
+Swagger - http://host:port/swagger-ui/index.html
+
 docker run --name mongo-company -d -p 27017:27017 -v D:/data/db/esm-company-svc mongo
