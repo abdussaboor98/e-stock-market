@@ -1,17 +1,15 @@
-package com.estockmarket.companyservice.entity;
+package com.estockmarket.companyservice.dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@Document
-public class CompanyEntity {
-    @Id
-    private String id;
+@AllArgsConstructor
+@NoArgsConstructor
+public class CompanyDTO {
     private String companyCode;
     private String name;
     private String ceoName;
