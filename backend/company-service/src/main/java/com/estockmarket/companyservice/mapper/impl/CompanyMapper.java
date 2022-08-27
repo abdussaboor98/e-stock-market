@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.estockmarket.companyservice.dto.CompanyDTO;
 import com.estockmarket.companyservice.entity.Company;
-import com.estockmarket.companyservice.mapper.IEntityDTOMapper;
+import com.estockmarket.companyservice.mapper.EntityDTOMapper;
 
-public class CompanyMapper implements IEntityDTOMapper<Company, CompanyDTO> {
+public class CompanyMapper implements EntityDTOMapper<Company, CompanyDTO> {
 
     @Autowired
     private ModelMapper modelMapper;
