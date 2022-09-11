@@ -1,5 +1,7 @@
 package com.estockmarket.companyservice.dto;
 
+import java.math.BigDecimal;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +15,7 @@ public class CompanyDTO {
     private String companyCode;
     private String name;
     private String ceoName;
-    private Double turnover;
+    private BigDecimal turnover;
     private String website;
     private String stockExchange;
 }

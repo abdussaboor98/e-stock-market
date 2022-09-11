@@ -1,5 +1,7 @@
 package com.estockmarket.companyservice.entity;
 
+import java.math.BigDecimal;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,7 +17,7 @@ public class Company {
     private String companyCode;
     private String name;
     private String ceoName;
-    private Double turnover;
+    private BigDecimal turnover;
     private String website;
     private String stockExchange;
 }

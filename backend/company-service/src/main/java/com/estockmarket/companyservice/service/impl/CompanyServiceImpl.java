@@ -1,8 +1,12 @@
 package com.estockmarket.companyservice.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.estockmarket.companyservice.dto.CompanyDTO;
+import com.estockmarket.companyservice.entity.Company;
+import com.estockmarket.companyservice.mapper.impl.CompanyMapper;
 import com.estockmarket.companyservice.repo.CompanyRepo;
 import com.estockmarket.companyservice.repo.SequenceRepo;
 import com.estockmarket.companyservice.service.CompanyService;
@@ -20,11 +24,17 @@ public class CompanyServiceImpl implements CompanyService {
 
     private SequenceRepo sequenceRepo;
 
+    private CompanyMapper companyMapper;
+
     @Override
     public CompanyDTO registerNewCompany(CompanyDTO companyDto) {
-        companyDto.setCompanyCode(generateNewCompanyCode(companyDto.getName()));
-        log.info("Company Name: {} - New code: {}", companyDto.getName(), companyDto.getCompanyCode());
-        return companyDto;
+
+        Company newCompany = companyMapper.converToEntity(companyDto);
+        newCompany.setCompanyCode(generateNewCompanyCode(companyDto.getName()));
+        // TODO: Perform validations
+        Company savedCompany = companyRepo.save(newCompany);
+        log.info("New Company saved | Company Name: {} ~ New code: {}", savedCompany.getName(), savedCompany.getCompanyCode());
+        return companyMapper.convertToDTO(savedCompany);
     }
 
     private String generateNewCompanyCode(String companyName) {
@@ -38,5 +48,10 @@ public class CompanyServiceImpl implements CompanyService {
         }
         newCodeBuilder.append(String.format("%05d", sequenceRepo.getNextSequenceId(newCodeBuilder.toString())));
         return newCodeBuilder.toString();
+    }
+
+    @Override
+    public List<CompanyDTO> getAllCompanies() {
+       return companyMapper.convertToDTOList(companyRepo.findAll());
     }
 }
