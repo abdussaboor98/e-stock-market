@@ -9,4 +9,6 @@ public interface CompanyService {
     CompanyDTO registerNewCompany(CompanyDTO companyModel);
 
     List<CompanyDTO> getAllCompanies();
+
+    CompanyDTO getCompany(String companyCode);
 }

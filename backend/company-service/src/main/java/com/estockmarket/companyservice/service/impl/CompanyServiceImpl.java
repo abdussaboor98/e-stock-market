@@ -54,4 +54,13 @@ public class CompanyServiceImpl implements CompanyService {
     public List<CompanyDTO> getAllCompanies() {
        return companyMapper.convertToDTOList(companyRepo.findAll());
     }
+
+    @Override
+    public CompanyDTO getCompany(String companyCode) {
+        Company company = companyRepo.findByCompanyCode(companyCode);
+        if(company != null)
+            return companyMapper.convertToDTO(company);
+        else
+            return null; //TODO throw not found exception
+    }
 }
