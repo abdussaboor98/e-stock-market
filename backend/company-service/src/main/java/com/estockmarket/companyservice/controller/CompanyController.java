@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.estockmarket.companyservice.dto.CompanyDTO;
 import com.estockmarket.companyservice.service.CompanyService;
-
-
 
 @RestController
 @RequestMapping("/api/v1.0/market/company/")
@@ -40,6 +39,9 @@ public class CompanyController {
     public ResponseEntity<CompanyDTO> getCompanyByCompanyCode(@PathVariable String companyCode) {
         return new ResponseEntity<>(companyService.getCompany(companyCode), HttpStatus.OK);
     }
-    
-    
+
+    @DeleteMapping(value="delete/{companyCode}")
+    public ResponseEntity<CompanyDTO> getMethodName(@PathVariable String companyCode) {
+        return new ResponseEntity<>(companyService.deleteCompany(companyCode), HttpStatus.NO_CONTENT);
+    }
 }

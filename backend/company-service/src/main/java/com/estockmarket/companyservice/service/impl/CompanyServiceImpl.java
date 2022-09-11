@@ -57,9 +57,21 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public CompanyDTO getCompany(String companyCode) {
+        // TODO validate company code
         Company company = companyRepo.findByCompanyCode(companyCode);
         if(company != null)
             return companyMapper.convertToDTO(company);
+        else
+            return null; //TODO throw not found exception
+    }
+
+    @Override
+    public CompanyDTO deleteCompany(String companyCode) {
+        // TODO validate company code
+        List<Company> deletedCompanies = companyRepo.deleteByCompanyCode(companyCode);
+        if(!deletedCompanies.isEmpty()) {
+            return companyMapper.convertToDTO(deletedCompanies.get(0));
+        }
         else
             return null; //TODO throw not found exception
     }

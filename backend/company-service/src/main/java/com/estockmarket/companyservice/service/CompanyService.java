@@ -11,4 +11,6 @@ public interface CompanyService {
     List<CompanyDTO> getAllCompanies();
 
     CompanyDTO getCompany(String companyCode);
+
+    CompanyDTO deleteCompany(String companyCode);
 }

@@ -23,7 +23,9 @@ public class SequenceRepoImpl implements SequenceRepo {
         Update update = new Update().inc("seq", 1);
         FindAndModifyOptions options = FindAndModifyOptions.options().returnNew(Boolean.TRUE).upsert(Boolean.TRUE);
         SequenceId sequenceId = operations.findAndModify(query, update, options, SequenceId.class);
-        return sequenceId.getSeq();
+        if(sequenceId != null)
+            return sequenceId.getSeq();
+        else return 1;
     }
     
 }
