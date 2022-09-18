@@ -1,7 +1,8 @@
 package com.estockmarket.stockservice.entity;
 
 import java.math.BigDecimal;
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,5 +19,7 @@ public class Stock {
     private Integer id;
     private String companyCode;
     private BigDecimal price;
-    private ZonedDateTime dateTime;
+    private LocalDate date;
+    private LocalTime time;
+    private boolean isLatest;
 }
