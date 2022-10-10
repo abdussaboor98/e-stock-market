@@ -1,0 +1,12 @@
+server:
+    port: 8089
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27018
+    #   username: root
+    #   password: root
+      database: esm-user-svc
+      auto-index-creation: true

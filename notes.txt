@@ -3,4 +3,6 @@ Swagger - http://host:port/swagger-ui/index.html
 
 docker run --name mongo-company -d -p 27017:27017 -v D:/data/db/esm-company-svc mongo
 
+docker run --name mongo-user -d -p 27018:27017 -v D:/data/db/esm-user-svc mongo
+
 docker run --name mysql-stock -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ROOT_HOST=% -e MYSQL_DATABASE=esm_stocks_db -v D:/data/db/esm-stock-svc mysql/mysql-server:8.0
